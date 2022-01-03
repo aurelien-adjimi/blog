@@ -1,31 +1,8 @@
 <?php
 
-$bdd = mysqli_connect("localhost", "root", "", "blog");
-
-if (isset ($_POST['inscription'])) {
-
-    $login = $_POST['login'];
-    $password = $_POST['password'];
-    $password2 = $_POST['password2'];
-
-    if (!empty( $_POST['login']) && !empty($_POST['password'])) {
-    $sql = "INSERT INTO utilisateurs(login, password) VALUES ('$login', '$password')"; 
-
-    $sel = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '".$_POST['login']."'");
-    if (mysqli_num_rows($sel)) {
-        exit('Ce login existe déjà');
-
-    }   
-        if ($password == $password2) {
-            mysqli_query($bdd,$sql);
-            header ('Location: ../php/connexion.php');
-            }
-            
-            if ($password != $password2) {
-                echo 'Vérifiez votre mot de passe';
-            }
-    }
-}
+if(isset($_POST['inscription'])) {
+    $sign = new Inscription($_POST['login'], $_POST['password'], $_POST['password_confirmation'], $_POST['email'], 1);
+ }
 
 if (isset($_POST['deco'])) {
     session_start();
@@ -56,6 +33,10 @@ if (isset($_POST['deco'])) {
     <label for="login">Login :</label>
         <br>
             <input type="text" placeholder="Tapez votre login" id="login" name="login" value="<?php if(isset($login)) { echo $login; } ?>" />
+    <br><br>
+    <label for="mail">E-mail:</label>
+        <br>
+            <input type="mail" placeholder="Entrez votre mail" id="mail" name="mail"/>
     <br><br>
     <label for="password">Mot de passe :</label>
         <br>
