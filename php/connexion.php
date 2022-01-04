@@ -1,9 +1,26 @@
 <?php
-require('./fonctions.php');
+
+$bdd = mysqli_connect("localhost", "root", "", "blog");
 
 if(isset($_POST['formconnexion'])) {
-   $sign = new Connexion($_POST['email'], $_POST['password']);
+
+   $loginconnect = ($_POST['loginconnect']);
+   $mdpconnect = ($_POST['mdpconnect']);
+   $res = mysqli_query($bdd,"SELECT * FROM utilisateurs");
+   $array= mysqli_fetch_all($res,MYSQLI_ASSOC);
+
+   foreach($array as $key =>$value)
+
+if ($mdpconnect == $value['password'] && $loginconnect == $value['login']) {
+      $_SESSION['login'] = $loginconnect;
+      header ('Location: index.php');
+   }
+
+   if($mdpconnect!=$value['password']) {
+      echo '<p>Mauvais mot de passe</p>';
+   }
 }
+
 ?>
 <html>
    <head>

@@ -1,11 +1,10 @@
 <?php 
 $bdd = mysqli_connect("localhost", "root", "", "blog");
-session_start()
 ?>
 
 <nav class="footer">
     <ul>
-        <li><a href = "../index.php">Accueil</a></li>
+        <li><a href = "./blog/index.php">Accueil</a></li>
         <li><a href = "./php/articles.php">Articles</a></li>
         <li><a href = "./php/inscription.php">Inscription</a></li>
     </ul>

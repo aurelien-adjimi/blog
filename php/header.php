@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 
 if(isset($_POST['formconnexion'])) {
@@ -20,6 +20,12 @@ if($mdpconnect!=$value['password']) {
    echo 'Mauvais mot de passe';
 }
 }
+
+if(isset($_POST['deco'])) {
+    session_start();
+    session_destroy();
+    header('Location: ./blog/php/connexion.php');
+}
 ?>
 <nav class="header">
 
@@ -33,19 +39,12 @@ if($mdpconnect!=$value['password']) {
         }
         ?>
         <?php
+
         if (isset($_SESSION['login'])) {
             echo "  <li><a href='./php/profil.php'>Mon profil</a></li>";
-
-            if($_SESSION['login'] == 'admin'){
-                echo "  <li><a href='./php/admin.php'>La page Admin</a></li>";
-            }
-
-            if($_SESSION['login'] == 'modérateur') {
-                echo "<li><a href = './php/creer-article.php'";
-            }
-
-            $deco = "<form action='#' method='post' id='deco'><input type='submit' name='deco' class='deco' value='Deconnexion'></form>";
-
+            echo '<form method="POST" action="">
+            <input type="submit" name="deco" value="deconnexion"/>
+        </form>';
 
         } else {
             echo "";
@@ -68,9 +67,4 @@ if($mdpconnect!=$value['password']) {
                 </div>';
             }
                 ?>
-    <?php
-    if (isset($deco)) {
-        echo $deco;
-    }
-    ?>
 </nav>

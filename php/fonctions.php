@@ -68,7 +68,7 @@ class Connexion
                     $_SESSION['email'] = $info_user[0]['email'];
                     $_SESSION['id'] = $info_user[0]['id'];
                     $_SESSION['login'] = $info_user[0]['login'];
-                    $_SESSION['perms'] = $info_user[0]['id_droits'];
+                    $_SESSION['perm'] = $info_user[0]['id_droits'];
 
                     header('refresh:1;url=/blog/index.php');
                 } else {
