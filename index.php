@@ -14,7 +14,26 @@
         <?php require './php/header.php' ?>
     </header>
     <main>
+<?php 
 
+$bdd = mysqli_connect("localhost", "root", "", "blog");
+$req = mysqli_query($bdd, "SELECT * FROM articles ORDER BY article DESC LIMIT 3");
+$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
+for ($i = 0; isset($res[$i]); $i++) {
+    echo "<option value=".$res[$i]['article'].">".$res[$i]['article']."</option>";
+}
+
+?>
+
+<form action="" method="POST">
+    <input type="submit" name="art" id="art" value="Tous les articles">
+</form>
+
+<?php 
+if(isset($_POST['art'])) {
+    header('Location: ./php/articles.php');
+}
+?>
     </main>
 
     <footer>

@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
    $login = $_SESSION['login'];
    $bdd = mysqli_connect("localhost", "root", "", "blog");
@@ -68,9 +67,9 @@ exit;
       </form>
    </div>
 </main>   
-   </body>
 
-   <footer>
+<footer>
    <?php require 'footer.php' ?>
    </footer>
+   </body>
 </html>
