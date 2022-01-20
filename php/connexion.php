@@ -1,18 +1,19 @@
 <?php
-
+session_start();
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 
 if(isset($_POST['formconnexion'])) {
 
    $loginconnect = ($_POST['loginconnect']);
    $mdpconnect = ($_POST['mdpconnect']);
-   $res = mysqli_query($bdd,"SELECT * FROM utilisateurs");
+   $res = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login='$loginconnect'");
    $array= mysqli_fetch_all($res,MYSQLI_ASSOC);
 
    foreach($array as $key =>$value)
 
 if ($mdpconnect == $value['password'] && $loginconnect == $value['login']) {
       $_SESSION['login'] = $loginconnect;
+      $_SESSION['id'] = $value['id'];
       header ('Location: index.php');
    }
 

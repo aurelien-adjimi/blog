@@ -1,5 +1,5 @@
 <?php 
-session_start();
+/*session_start();
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 
 if(isset($_POST['formconnexion'])) {
@@ -19,7 +19,7 @@ if ($mdpconnect == $value['password'] && $loginconnect == $value['login']) {
 if($mdpconnect!=$value['password']) {
    echo 'Mauvais mot de passe';
 }
-}
+}*/
 
 if(isset($_POST['deco'])) {
     session_start();
