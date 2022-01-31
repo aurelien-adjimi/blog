@@ -2,6 +2,8 @@
 session_start();
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 
+// Connexion //
+
 if(isset($_POST['formconnexion'])) {
 
 $loginconnect = ($_POST['loginconnect']);
@@ -26,31 +28,57 @@ if(isset($_POST['deco'])) {
     session_destroy();
     header('Location: ./blog/php/connexion.php');
 }
+
+// Header //
+
 ?>
 <nav class="header">
 
     <ul>
-
+<!-- Si pas connecté -->
         <?php
         if (!isset($_SESSION['login'])) {
             echo "<li><a href='../index.php'>Accueil</a></li>";
             echo "<li><a href='./php/inscription.php'>Inscription</a></li>";
             echo "<li><a href='./php/connexion.php'>Connexion</a></li>";
+            echo "<select name='cat'>";
+            echo "<option>Catégories</option>";
+            echo "<option>Apéritifs</option>";
+            echo "<option>Entrée</option>";
+            echo "<option>Plats</option>";
+            echo "<option>Désserts</option>";
         }
         ?>
+<!-- Si connecté -->        
         <?php
 
         if (isset($_SESSION['login'])) {
-            echo "  <li><a href='./php/profil.php'>Mon profil</a></li>";
-            echo '<form method="POST" action="">
-            <input type="submit" name="deco" value="deconnexion"/>
-        </form>';
-
+        echo "<li><a href='../index.php'>Accueil</a></li>";
+        echo "  <li><a href='./php/profil.php'>Mon profil</a></li>";
+        echo "<select name='cat'>";
+        echo "<option>Catégories</option>";
+        echo "<option>Apéritifs</option>";
+        echo "<option>Entrée</option>";
+        echo "<option>Plats</option>";
+        echo "<option>Désserts</option>";
+        echo '<form method="POST" action="">
+        <input type="submit" name="deco" value="deconnexion"/> 
+    </form>';
         } else {
             echo "";
         }
+// Si modérateur //
+
+        if(isset($_SESSION['login'  == 'Moderateur'])) {
+        echo "<li><a href='./php/creer-article.php'";
+        }
+// Si admin //
+        if(isset($_SESSION['login'  == 'Admin'])) {
+            echo "<li><a href='./php/admin'";
+            }
         ?>
         </ul>
+<!-- Connexion header -->        
         <?php
         if (!isset($_SESSION['login'])) {
         echo '<div id="form">

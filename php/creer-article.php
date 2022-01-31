@@ -1,6 +1,6 @@
 <?php
     //ouverture de la session
-   session_start();
+   //session_start();
 
    //connexion à la session
     $bdd = mysqli_connect("localhost", "root", "", "blog");
@@ -45,6 +45,8 @@
                 <form action="#" method="post">
                     <input class="input" type="text" placeholder="Entrer le nom de l'article" name="article">
                         <br> </br>
+                        <textarea></textarea>
+                        <br><br>
                         <select name="article2">
                             <option>Sélectionner une catégorie</option>
                             <?php
@@ -72,6 +74,9 @@
             </div>
             
         </div>
+        <footer>
+        <?php require 'footer.php' ?>
+    </footer>
     </main>
     
 </body>

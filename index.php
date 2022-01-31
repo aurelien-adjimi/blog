@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/css/index.css">
-    <link rel="stylesheet" href="asset/css/header.css">
-    <link rel="stylesheet" href="asset/css/footer.css">
+    <link rel="stylesheet" href="./asset/css/index.css">
+    <link rel="stylesheet" href="./asset/css/header.css">
+    <link rel="stylesheet" href="./asset/css/footer.css">
     <title>Accueil</title>
 </head>
 <body>
@@ -20,6 +20,10 @@ $bdd = mysqli_connect("localhost", "root", "", "blog");
 $req = mysqli_query($bdd, "SELECT * FROM articles ORDER BY article DESC LIMIT 3");
 $res = mysqli_fetch_all($req, MYSQLI_ASSOC);
 for ($i = 0; isset($res[$i]); $i++) {
+    //echo "<ul>";
+    //echo "<li>$res[$i]['article']";
+    //echo "</li>";
+    //echo "</ul>";
     echo "<option value=".$res[$i]['article'].">".$res[$i]['article']."</option>";
 }
 

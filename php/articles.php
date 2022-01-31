@@ -1,6 +1,6 @@
 <?php
     //ouverture de la session
-    session_start();
+    //session_start();
     
     //connexion à la session
     $bdd = mysqli_connect("localhost", "root", "", "blog");
