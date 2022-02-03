@@ -25,6 +25,7 @@
     align-items: center;
     margin-top: 50%;
     font-size: 20px;
+    font-style: italic;
 }
 /*fin boite de gauche*/
 
@@ -81,5 +82,12 @@ select:focus{
     transform: scale(1.05);
     transition: 1s;
     background-color: #2ecc71;
+}
+.ErreurEnvoyer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6%;
+    font-size: 18px;
 }
 /*fin boite de droite*/
