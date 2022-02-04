@@ -4,10 +4,8 @@ $bdd = mysqli_connect("localhost", "root", "", "blog");
 if(isset($_POST['formconnexion'])) {
    $loginconnect =$_POST['loginconnect'];
    $mdpconnect = $_POST['mdpconnect'];
-   echo"SELECT * FROM utilisateurs WHERE login = $loginconnect";
    $res = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE `login` = '$loginconnect'");
    $array= mysqli_fetch_all($res, MYSQLI_ASSOC);
-   var_dump($array);
 
 
 if ($mdpconnect == $array[0]['password'] && $loginconnect == $array[0]['login']) {

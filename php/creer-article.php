@@ -15,10 +15,9 @@
             $erreur = "Veuillez remplir les champs";
         }
         else{
-            $envoyer = "article enregistré";
+            $envoyer = "Article enregistré";
         }
-        $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', $actualid, '$IDcategorie', NOW())");
-        var_dump($_SESSION['login']);    
+        $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', $actualid, '$IDcategorie', NOW())"); 
     }
 
     $req2 = mysqli_query($bdd, "SELECT * FROM `categories` ");
