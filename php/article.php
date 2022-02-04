@@ -38,21 +38,34 @@ $req2 = mysqli_query($bdd, "SELECT commentaires.commentaire, utilisateurs.login,
                             ON commentaires.id_article = articles.id WHERE id_article = $start");
 $res2= mysqli_fetch_all($req2, MYSQLI_ASSOC);
 
-echo '<div class="art">' .$res[0]['article']. '</div>';
-//echo '<div class="comm">' .$res2[0]['commentaire']. '</div>';
+foreach($res as $value) {
+echo '<div id="cont">';
+echo '<div class="art"><p class="art">' .$value['article']. '</p></div>';
+foreach($res2 as $key) {
+    echo '<div class="comm">' .$key['login'];
+    echo '<div class="comm">' .$key['commentaire'];
+    echo '<div class="comm">' .$key['date'];
+}
+echo '</div>';
+}
+
+
 
 $log = $_SESSION['id'];
 $req3 = mysqli_query($bdd, "SELECT id FROM utilisateurs WHERE login='$log'");
 $res3 = mysqli_fetch_all($req3, MYSQLI_ASSOC);
 
-if (isset($_SESSION['login']) && isset($_POST['envoyer'])) {
+if (isset($_POST['envoyer'])) {
+    $actuallogin = $_SESSION['login'];
     $start= $_GET['start'];
-    $id= $res3[0]['id'];
+    $log = $_SESSION['id'];
+    //$id= $res3[0]['id'];
     $text = addslashes($_POST['textarea']);
-    $req4 = mysqli_query($bdd, "INSERT INTO commentaires(commentaire, id_utilisateur, date) 
-                                VALUES ('$text','$id',NOW()) WHERE articles.id = $start");
+    $req4 = mysqli_query($bdd, "INSERT INTO commentaires(commentaire, id_article, id_utilisateur, date) 
+                                VALUES ('$text','$start', $log,NOW())");
     header("Refresh:3");
 }
+
 ?>
 
 <div class="formu">
