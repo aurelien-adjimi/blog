@@ -1,10 +1,9 @@
 <?php
-
-
-   $login = $_SESSION['login'];
-   $bdd = mysqli_connect("localhost", "root", "", "blog");
-   $dn = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$login'");
-   $array = mysqli_fetch_all($dn, MYSQLI_ASSOC);
+session_start();
+ $login = $_SESSION['login'];
+ $bdd = mysqli_connect("localhost", "root", "", "blog");
+ $dn = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$login'");
+ $array = mysqli_fetch_all($dn, MYSQLI_ASSOC);
 
 foreach($array as $key=>$value);
 

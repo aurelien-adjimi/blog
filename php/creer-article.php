@@ -15,10 +15,16 @@
             $erreur = "Veuillez remplir les champs";
         }
         else{
+<<<<<<< HEAD
             $envoyer = "article enregistré";
         }
         $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', $actualid, '$IDcategorie', NOW())");
         var_dump($_SESSION['login']);    
+=======
+            $envoyer = "Article enregistré";
+        }
+        $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', $actualid, '$IDcategorie', NOW())"); 
+>>>>>>> Aurélien
     }
 
     $req2 = mysqli_query($bdd, "SELECT * FROM `categories` ");
@@ -33,6 +39,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../asset/css/header.css">
+    <link rel="stylesheet" href="../asset/css/footer.css">
     <link rel="stylesheet" href="../asset/css/creer-article.css">
 </head>
 <body>
@@ -87,6 +94,10 @@
             
         </div>
     </main>
-    
+    <footer>
+    <?php 
+        require("footer.php");
+    ?>
+</footer> 
 </body>
 </html>

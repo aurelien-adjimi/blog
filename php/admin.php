@@ -28,6 +28,7 @@
         </form>
 
 <?php
+session_start();
 
 $bdd = mysqli_connect("localhost", "root", "", "blog"); //Connexion BDD
 $req = mysqli_query($bdd, "SELECT * FROM utilisateurs"); // Requête sélection des utilisateurs
@@ -41,6 +42,17 @@ $res4 = mysqli_fetch_all($req4, MYSQLI_ASSOC); // Résultat requête
 
 
 // Actions sur user//
+
+if(isset($_POST['sub'])) {
+    $login = $_SESSION['login'];
+    $log = $_POST['login'];
+    $mdp = $_POST['password'];
+    $mail = $_POST['email'];
+    $droits = $_POST['id_droits'];
+    $req6 = mysqli_query($bdd, "UPDATE utilisateurs SET login ='$log', password= '$mdp', email='$mail', id_droits='$droits' WHERE login= '$login'");
+    $_SESSION['login'] = $_POST['login'];
+    header('refresh: 0,');
+}
 
 if(isset($_POST['submit'])) {
 
@@ -88,22 +100,22 @@ if(isset($_POST['subUser'])) {
          echo '<input type="submit" name"sub" value="Modifier">';
         }    
 }
-
-if(isset($_POST['sub'])) {
-    $login = $_SESSION['login'];
-    $log = $_POST['login'];
-    $mdp = $_POST['password'];
-    $mail = $_POST['email'];
-    $droits = $_POST['id_droits'];
-    $req6 = mysqli_query($bdd, "UPDATE utilisateurs SET login ='$log', password= '$mdp', email='$mail', id_droits='$droits' WHERE login= '$login'");
-    $_SESSION['login'] = $_POST['login'];
-    header('refresh: 0,');
-}
 ?>
 
 <?php 
 
 // Actions sur articles//
+
+
+if(isset($_POST['sub'])) {
+    $login = $_SESSION['login'];
+    $art = $_POST['article'];
+    $iduser = $_POST['id_utilisateur'];
+    $idcat = $_POST['id_categorie'];
+    $req6 = mysqli_query($bdd, "UPDATE articles SET article ='$art', id_categorie= '$idcat', id_utilisateur='$iduser', WHERE login= '$login'");
+    $_SESSION['login'] = $_POST['login'];
+    header('refresh: 0,');
+}
 
 if(isset($_POST['submit'])) {
 
@@ -148,21 +160,19 @@ if(isset($_POST['subArt'])) {
         }    
 }
 
-if(isset($_POST['sub'])) {
-    $login = $_SESSION['login'];
-    $art = $_POST['article'];
-    $iduser = $_POST['id_utilisateur'];
-    $idcat = $_POST['id_categorie'];
-    $req6 = mysqli_query($bdd, "UPDATE articles SET article ='$art', id_categorie= '$idcat', id_utilisateur='$iduser', WHERE login= '$login'");
-    $_SESSION['login'] = $_POST['login'];
-    header('refresh: 0,');
-}
-
     ?>
 
 <?php 
 
 // Actions sur commentaires//
+
+
+if(isset($_POST['sub'])) {
+    $login = $_SESSION['login'];
+    $req8 = mysqli_query($bdd, "DELETE FROM commentaires WHERE $_POST[GetIdComm]");
+    $_SESSION['login'] = $_POST['login'];
+    header('refresh: 0,');
+}
 
 if(isset($_POST['submit'])) {
 
@@ -206,18 +216,21 @@ if(isset($_POST['subComm'])) {
         }    
 }
 
-if(isset($_POST['sub'])) {
-    $login = $_SESSION['login'];
-    $req8 = mysqli_query($bdd, "DELETE FROM commentaires WHERE $_POST[GetIdComm]");
-    $_SESSION['login'] = $_POST['login'];
-    header('refresh: 0,');
-}
-
     ?>
 
 <?php 
 
 // Actions sur catégories//
+
+
+if(isset($_POST['sub'])) {
+    $login = $_SESSION['login'];
+    $nom = $_POST['nom'];
+    $req8 = mysqli_query($bdd, "UPDATE categories SET nom ='$nom', WHERE login= '$login'");
+    $_SESSION['login'] = $_POST['login'];
+    header('refresh: 0,');
+}
+
 
 if(isset($_POST['submit'])) {
 
@@ -255,14 +268,6 @@ if(isset($_POST['subCat'])) {
         echo '<br><br>';
         echo '<input type="submit" name"sub" value="Modifier">';
         }    
-}
-
-if(isset($_POST['sub'])) {
-    $login = $_SESSION['login'];
-    $nom = $_POST['nom'];
-    $req8 = mysqli_query($bdd, "UPDATE categories SET nom ='$nom', WHERE login= '$login'");
-    $_SESSION['login'] = $_POST['login'];
-    header('refresh: 0,');
 }
 
     ?>

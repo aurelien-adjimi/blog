@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
+main #form {
+    display: flex;
+    justify-content: center;
+    margin-left: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 3%;
+    padding-left: 2%;
+    border: 1px solid black;
+    width: 50vw;
+    background-color: rgb(184, 182, 169);
+    opacity: 0.75;
+}
+
+main #form:hover {
+    opacity: 1;
+}
+
+main #form .image img {
+    width: 30vw;
+    height: 40vh;
+}
+
+main #form form {
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+main #form form label {
+    font-family: 'Sacramento', cursive;
+    text-align: center;
+    font-size: 25px;
+}
+
+main #form form input {
+    border: 1px solid black;
+    border-radius: 15%;
+    text-align: center;
+}
+
+main #form form .inp input {
+    font-family: 'Sacramento', cursive;
+    font-size: 20px;
+    margin-left: 5%;
+    background-color: rgb(184, 182, 169);
+    height: 5vh;
+    width: 8vw;
+}
+
+main #form form .inp input:hover {
+    font-size: 25px;
+    background-color: black;
+    color: whitesmoke;
+}

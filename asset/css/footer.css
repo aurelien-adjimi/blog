@@ -1,4 +1,25 @@
-footer {
-    background-color: aqua;
-    margin-bottom: 0%;
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+.footer {
+    background-color: rgb(184, 182, 169);
+    padding: 10px;
+    margin-top: 5%;
+    font-size: 30px;
+    border: 1 px solid white;
+    border-radius: 35px;
+    opacity: 0.66;
+    font-family: 'Sacramento', cursive;
+}
+
+.footer ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: black;
 }
