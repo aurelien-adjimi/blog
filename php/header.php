@@ -1,8 +1,4 @@
 <?php 
-<<<<<<< HEAD
-/*session_start();
-=======
->>>>>>> Aurélien
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 if(isset($_POST['deco'])) {
     session_destroy();
@@ -28,7 +24,7 @@ if ($mdpconnect == $array[0]['password'] && $loginconnect == $array[0]['login'])
 if($mdpconnect!=$array[0]['password']) {
    echo 'Mauvais mot de passe';
 }
-}*/
+}
 
 // Header //
 
