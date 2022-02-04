@@ -1,8 +1,5 @@
 <?php 
-<<<<<<< HEAD
 /*session_start();
-=======
->>>>>>> Aurélien
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 if(isset($_POST['deco'])) {
     session_destroy();
