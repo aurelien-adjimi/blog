@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
+#cont {
+    display: flex;
+    justify-content: space-around;
+}
+
 .art {
+    display: flex;
+    justify-content: center;
     font-family: 'Sacramento', cursive;
+    font-size: 30px;
 
 }
 
 .comm {
     font-family: 'Sacramento', cursive;
+    font-size: 30px;
+
 }
