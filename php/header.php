@@ -1,31 +1,24 @@
 <?php 
-/*session_start();
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 if(isset($_POST['deco'])) {
     session_destroy();
     header('Location: ../php/connexion.php');
 }
 // Connexion //
-
 if(isset($_POST['formconnexion'])) {
-
 $loginconnect = ($_POST['loginconnect']);
 $mdpconnect = ($_POST['mdpconnect']);
 $res = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE `login` = '$loginconnect'");
 $array= mysqli_fetch_all($res,MYSQLI_ASSOC);
-
-
 if ($mdpconnect == $array[0]['password'] && $loginconnect == $array[0]['login']) {
    $_SESSION['login'] = $loginconnect;
    $_SESSION['droits']= $array[0]['id_droits'];
-
    header ('Location: ./php/profil.php');
 }
-
 if($mdpconnect!=$array[0]['password']) {
    echo 'Mauvais mot de passe';
 }
-}*/
+}
 
 // Header //
 

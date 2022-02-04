@@ -1,12 +1,16 @@
-*{
-    margin:0;
-    padding:0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 #container{
     display: flex;
     margin: 40px 40px;
     position: relative;
     right: -10%;
+}
+
+#container p {
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 60%;
 }
 /*boite de gauche*/
 .gauche{
@@ -24,9 +28,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 50%;
-    font-size: 20px;
-    font-style: italic;
-}
+    font-size: 20px;}
+
 /*fin boite de gauche*/
 
 /*boite de droite*/
@@ -44,7 +47,7 @@
 }
 .input{
     border: 0;
-    border: 2px solid #3498db;
+    border: 2px solid rgb(184, 182, 169);
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -53,11 +56,11 @@
 }
 .input:focus{
     width: 280px;
-    border-color: #2ecc71;
+    border-color: rgb(184, 182, 169);
 }
 select{
     border: 0;
-    border: 2px solid #3498db;
+    border: 2px solid rgb(184, 182, 169);
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -67,7 +70,7 @@ select{
 }
 select:focus{
     width: 280px;
-    border-color: #2ecc71;
+    border-color: rgb(184, 182, 169);
 }
 .valid{
     cursor: pointer;

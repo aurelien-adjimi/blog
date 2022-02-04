@@ -1,22 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
 /*class boite*/
 .boite{
     position: relative;
-    left: 40%;
+    margin-left: 40%;
 }
 .titre{
-    color: blue;
-    text-decoration: none;
-    font-size: 30px;
-}
-.titre a{
-    text-decoration: none;
-}
-.titre a:hover{
-    text-decoration: underline;
-}
-.date{
-    font-size: 20px;
+    font-family: 'Sacramento', cursive;
     color: black;
+    background-color: rgb(184, 182, 169);
+    font-size: 30px;
+    margin-bottom: 15px;
+    opacity: 0.66;
+    border: 1px solid black;
+    border-radius: 15%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30vw;
+    height: 30vh;
+}
+
+.titre:hover {
+    opacity: 1;
+    background-color: white;
+}
+
+#cnt {
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    background-image: url(https://cdn.pixabay.com/photo/2019/05/07/09/01/spices-4185324_1280.jpg);
+    background-size: 100%;
+    height: 40vh;
+    align-items: center;
+}
+
+#cnt .bouton {
+    margin-top: 100px;
+}
+
+#cnt form input {
+    margin-left: 15%;
+}
+
+#cnt form .titrecategorie h3 {
+    margin-left: 10%;
+    font-family: 'Sacramento', cursive;
+    font-size: 25px;
+    border: 1px solid black;
+    border-radius: 24px;
+    padding: 3%;
+    background-color: rgb(184, 182, 169);
+    color: white;
+}
+
+.date{
+    font-weight: bolder;
+    font-size: 15px;
+    margin-top: 5px;
 }
 /*fin class boite*/
 
@@ -54,19 +97,13 @@
 /*fin bouton*/
 
 /*form*/
-.titrecategorie{
-    font-size: 25px;
-    position: relative;
-    top: 1%;
-}
 .form{
     position: relative;
-    left: 65%;
 }
 select{
     cursor: pointer;
     border: 0;
-    border: 2px solid #3498db;
+    border: 2px solid rgb(184, 182, 169);
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -74,20 +111,33 @@ select{
 }
 select:focus{
     width: 280px;
-    border-color: #2ecc71;
+    border-color: rgb(184, 182, 169);
 }
 .valid{
     cursor: pointer;
     border: 0;
-    border: 2px solid #2ecc71;
+    border: 2px solid rgb(184, 182, 169);
     padding: 14px 40px;
     outline: none;
     border-radius: 24px;
-    margin-left: 25px;
 }
 .valid:hover{
     transform: scale(1.05);
-    background-color: #2ecc71;
+    background-color: rgb(184, 182, 169);
     color: white;
 }
-/*fin form*/
+
+.titre a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14%;
+    font-family: 'Sacramento', cursive;
+}
+
+main h1 {
+    margin-left: 45%;
+    font-family: 'Sacramento', cursive;
+}

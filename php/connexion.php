@@ -9,11 +9,10 @@ if(isset($_POST['formconnexion'])) {
    $array= mysqli_fetch_all($res, MYSQLI_ASSOC);
    var_dump($array);
 
-
 if ($mdpconnect == $array[0]['password'] && $loginconnect == $array[0]['login']) {
       $_SESSION['login'] = $loginconnect;
-      $_SESSION['id'] = $value['id'];
-      header ('Location: index.php');
+      $_SESSION['droits']= $array[0]['id_droits'];
+      header("location: ./profil.php");
    }
 
    if($mdpconnect!=$array[0]['password']) {
