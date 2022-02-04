@@ -1,33 +1,30 @@
 <?php
     //ouverture de la session
-    //session_start();
-    
+    session_start();
+    if(!isset($_GET['start']) || !isset($_GET['categorie'])){
+        header("location:articles.php?start=1&categorie=");
+    }
     //connexion à la session
     $bdd = mysqli_connect("localhost", "root", "", "blog");
 
+    //validation de la catégorie
     if(isset($_GET['val'])){
-        $categorie = $_GET['categorie2'];
+        $categorie = $_GET['filtrecategorie'];
         header("Location: articles.php?categorie=$categorie&start=1");
     }
 
-    if(!isset($_GET['start']) && !isset($_GET['categorie'])){
-        $start=$_GET['start'];
-        $categorie=$_GET['categorie2'];
-        header("Location: articles.php?categorie=$categorie&start=1");
-    }
-
-    if (!empty($_GET['start']) && !empty($_GET['categorie']) && !empty($pages)){
-        $start = $_GET['start'];
-        $categorie = $_GET['categorie'];
-        $req = mysqli_query($bdd, "SELECT `articles.article`, `articles.date` FROM `articles` INNER JOIN `categories` ON categories.id=articles.id_categorie LIMIT 5 OFFSET $categorie, $start");
-        var_dump($_GET);    
-    }
-        else{
-            $start = $_GET['start'];
+           $start = $_GET['start'];
             $categorie = $_GET['categorie']; 
             $offset = 5 * ($start - 1);
-            $req = mysqli_query($bdd, "SELECT `article`, `date`, id_categorie FROM `articles` INNER JOIN `categories` ON categories.id=articles.id_categorie WHERE id_categorie=$categorie ORDER BY date DESC LIMIT 5 OFFSET $offset");
-            $res = mysqli_fetch_all($req, MYSQLI_ASSOC);
+            if(!empty($_GET['categorie'])){
+                $req = mysqli_query($bdd, "SELECT articles.article, articles.date FROM articles WHERE id_categorie=$categorie ORDER BY date DESC LIMIT $start,5");
+                $res = mysqli_fetch_all($req, MYSQLI_ASSOC);
+                
+               
+            }else{
+                $req = mysqli_query($bdd, "SELECT articles.article, articles.date, articles.id FROM articles ORDER BY date DESC LIMIT $start,5");
+                $res = mysqli_fetch_all($req, MYSQLI_ASSOC);
+            }
             $countpages = mysqli_query($bdd, "SELECT count(*) FROM `articles`");
             $res2 = mysqli_fetch_all($countpages);
             
@@ -38,11 +35,15 @@
             $pages = $res2[0][0] /5;
             //ceil permet d'arrondir au nombre supérieur
             $pages = ceil($pages);
+            
+        
+        //requête catégorie
+        $cat = mysqli_query($bdd, "SELECT `nom`, `id` FROM `categories` ");
+        $rescat = mysqli_fetch_all($cat, MYSQLI_ASSOC);
 
-            $cat = mysqli_query($bdd, "SELECT `nom`, `id` FROM `categories` ");
-            $rescat = mysqli_fetch_all($cat, MYSQLI_ASSOC);
+        if(empty($_GET['categorie'])){
+            
         }
-    
 ?>
 
 <!DOCTYPE html>
@@ -62,19 +63,17 @@
         ?>
     </header>
     <br>
-    
+    <main>
+        <div id="cnt">
     <div class="bouton">
         <a href="../php/creer-article.php"><button class="boutton">Nouvel article</button></a>
     </div>   
-
-    <h1>LES ARTICLES</h1>
-
     <form class="form" action="#" method="get">
-                    
-                        <select name="categorie2">
-                            <option>Filtrer les categories</option>
+                    <div class='titrecategorie'><h3>Filtrer les catégories</h3></div>
+                        <select name="filtrecategorie">
+                            <option></option>
                             <?php
-                                //affiche les categories pour le filtre
+                                //affiche les catégories pour le filtre
                                 for($i=0; isset($rescat[$i]); $i++){
                                     echo"<option value=".$rescat[$i]['id'].">".$rescat[$i]['nom']."</option>";
                                 }
@@ -84,18 +83,25 @@
                         <br> </br>
                     <input class="valid" type="submit" value="Confirmer" name="val">
                 </form>
+                </div>
+    <h1>LES ARTICLES</h1>
                 <br>
-    
-    <main>
+
         <div id="container">
             <div class="boite">
                 <?php
+                if(empty($res)){
+                    echo "<p>Il n'y a rien pour le moment !</p>";
+                }
+                //if(Isset($_GET['categorie'])){
                     //affiche les articles et les dates
                     for($i=0; isset($res[$i]); $i++){
-                        echo"<option class='titre' value=".$res[$i]['article'].">Nom de l'article : ".$res[$i]['article']."</option>";
+                        echo"<div class='titre'><a href=php/article.php?start=".$res[$i]['id'].">Nom de l'article : ".$res[$i]['article']."</a>";
                         echo"<option class='date' value=".$res[$i]['date'].">Publié le : ".$res[$i]['date']."</option>";
                         echo "<br>";
+                        echo"</div>";
                     }
+                //  }
                     /*foreach($res as $key => $value){
                         echo "<hr>";
                         foreach($value as $value2){

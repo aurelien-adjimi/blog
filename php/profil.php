@@ -1,4 +1,5 @@
 <?php
+session_start();
  $login = $_SESSION['login'];
  $bdd = mysqli_connect("localhost", "root", "", "blog");
  $dn = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$login'");

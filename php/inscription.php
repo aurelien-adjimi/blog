@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 
 
@@ -11,9 +11,11 @@ if (isset ($_POST['inscription'])) {
     $password2 = $_POST['password2'];
 
     if (!empty( $_POST['login']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
-    $sql = "INSERT INTO utilisateurs(login, email, password, id_droits) VALUES ('$login', '$mail','$password', 1)"; 
+    $sql = "INSERT INTO utilisateurs(login, email, password, id_droits) 
+            VALUES ('$login', '$mail','$password', 1)"; 
 
-    $sel = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '".$_POST['login']."'");
+    $sel = mysqli_query($bdd, "SELECT * FROM utilisateurs 
+                               WHERE login = '".$_POST['login']."'");
     if (mysqli_num_rows($sel)) {
         exit('Ce login existe déjà');
 
@@ -36,6 +38,7 @@ if (isset ($_POST['inscription'])) {
 <head>
     <title>Inscription</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../asset/css/inscription.css">
     <link rel="stylesheet" href="../asset/css/header.css">
     <link rel="stylesheet" href="../asset/css/footer.css">
 </head>
@@ -47,9 +50,12 @@ if (isset ($_POST['inscription'])) {
 
     <main>
 
-<div id="form" align="center">
+<div id="form">
+    <div class="image">
+        <img src="../asset/images/cook.jpg"/>
+    </div>
     <form method="POST" action="">
-    <label for="login">Login :</label>
+    <label for="login">Login:</label>
         <br>
             <input type="text" placeholder="Tapez votre login" id="login" name="login" value="<?php if(isset($login)) { echo $login; } ?>" />
     <br><br>
@@ -57,11 +63,11 @@ if (isset ($_POST['inscription'])) {
         <br>
             <input type="mail" placeholder="Entrez votre mail" id="mail" name="mail"/>
     <br><br>
-    <label for="password">Mot de passe :</label>
+    <label for="password">Mot de passe:</label>
         <br>
             <input type="password" placeholder="Votre mot de passe" id="mdp" name="password" />
     <br><br>
-    <label for="password2">Confirmation du mot de passe :</label>
+    <label for="password2">Confirmation du mot de passe:</label>
         <br>
             <input type="password" placeholder="Confirmez votre mdp" id="mdp2" name="password2" />
     <br><br>

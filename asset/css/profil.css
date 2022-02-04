@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+#form {
+    background-image: url(https://img.search.brave.com/X5r5GE92HEcSh_LBBGhwQxDAxeyPOLDIuDp0Nqnm9zo/rs:fit:1000:1000:1/g:ce/aHR0cDovL2Nkbi5z/aG9waWZ5LmNvbS9z/L2ZpbGVzLzEvMDQw/My81NTY1Lzk5MzUv/cHJvZHVjdHMvNVBD/U1ZhbHVlc2V0X2l0/dW8tOC1wb3VjZXMt/amFwb25haXMtY291/dGVhdXgtZGUtY3Vp/X3ZhcmlhbnRzLTEz/X2JhOTJkMmViLTdh/ZTMtNGUxMC05NGYz/LTBiMmZlNDgxMjZk/Nl8xMDI0eDEwMjQu/anBnP3Y9MTU5NDIw/NzcwNQ);
+    background-size: 300%;
+    width: 30%;
+    margin-top: 15%;
+}
+
+#form h2 {
+    font-family: 'Sacramento', cursive;
+    color: white;
+}

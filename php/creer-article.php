@@ -1,16 +1,16 @@
 <?php
     //ouverture de la session
-   //session_start();
+   session_start();
 
    //connexion à la session
     $bdd = mysqli_connect("localhost", "root", "", "blog");
-
+    
     if(isset($_POST['val'])){
         $actuallogin = $_SESSION['login'];
         $article = $_POST['article'];
-        
+        $actualid = $_SESSION['id'];
         $IDcategorie = $_POST['id2'];
-        $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', 1, '$IDcategorie', NOW())");
+        $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', $actualid, '$IDcategorie', NOW())");
         var_dump($_SESSION['login']);    
     }
 
@@ -26,6 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../asset/css/header.css">
+    <link rel="stylesheet" href="../asset/css/footer.css">
     <link rel="stylesheet" href="../asset/css/creer-article.css">
 </head>
 <body>
@@ -38,15 +39,13 @@
     <main>
         <div id="container">
             <div class="gauche">
-                <p>CREER DE NOUVEAUX ARTICLES</p>
+                <p>CREER DE DELICIEUX ARTICLES</p>
             </div>
 
             <div class="droite">
                 <form action="#" method="post">
                     <input class="input" type="text" placeholder="Entrer le nom de l'article" name="article">
                         <br> </br>
-                        <textarea></textarea>
-                        <br><br>
                         <select name="article2">
                             <option>Sélectionner une catégorie</option>
                             <?php
@@ -71,13 +70,19 @@
                     if(isset($req)) { ?>
                         <p> Article creer </p> 
                 <?php } ?>
+                <?php
+                    if(isset($_POST['val'])){
+                        echo "<p> veuillez remplir les champs</p>";
+                    }
+                ?>
             </div>
             
         </div>
-        <footer>
-        <?php require 'footer.php' ?>
-    </footer>
     </main>
-    
+    <footer>
+    <?php 
+        require("footer.php");
+    ?>
+</footer> 
 </body>
 </html>

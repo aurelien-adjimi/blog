@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+#container{
+    display: flex;
+    margin: 40px 40px;
+    position: relative;
+    right: -10%;
+}
+
+#container p {
+    font-family: 'Sacramento', cursive;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 60%;
+}
+/*boite de gauche*/
+.gauche{
+    box-sizing: content-box;
+    width: 35%;
+    height: 69vh;
+    background: url(https://images6.alphacoders.com/434/thumb-1920-434430.jpg);
+    background-size: cover;
+    background-position:center;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+.gauche p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50%;
+    font-size: 20px;
+    font-family: 'Sacramento', cursive;
+}
+/*fin boite de gauche*/
+
+/*boite de droite*/
+.droite{
+    box-sizing: content-box;
+    width: 40%;
+    background-color: white;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.droite form{
+    margin-top: 30%;
+    display: block;
+    text-align: center;
+}
+.input{
+    border: 0;
+    border: 2px solid rgb(184, 182, 169);
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.input:focus{
+    width: 280px;
+    border-color: rgb(184, 182, 169);
+}
+select{
+    border: 0;
+    border: 2px solid rgb(184, 182, 169);
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+select:focus{
+    width: 280px;
+    border-color: rgb(184, 182, 169);
+}
+.valid{
+    cursor: pointer;
+    border: 0;
+    border: 2px solid rgb(184, 182, 169);
+    padding: 14px 40px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.valid:hover{
+    transform: scale(1.05);
+    transition: 1s;
+    background-color: rgb(184, 182, 169);
+}
+/*fin boite de droite*/
