@@ -41,7 +41,7 @@ $res2= mysqli_fetch_all($req2, MYSQLI_ASSOC);
 echo '<div class="art">' .$res[0]['article']. '</div>';
 //echo '<div class="comm">' .$res2[0]['commentaire']. '</div>';
 
-$log = $_SESSION['login'];
+$log = $_SESSION['id'];
 $req3 = mysqli_query($bdd, "SELECT id FROM utilisateurs WHERE login='$log'");
 $res3 = mysqli_fetch_all($req3, MYSQLI_ASSOC);
 

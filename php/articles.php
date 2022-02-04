@@ -17,7 +17,7 @@
             $categorie = $_GET['categorie']; 
             $offset = 5 * ($start - 1);
             if(!empty($_GET['categorie'])){
-                $req = mysqli_query($bdd, "SELECT articles.article, articles.date FROM articles WHERE id_categorie=$categorie ORDER BY date DESC LIMIT $start,5");
+                $req = mysqli_query($bdd, "SELECT articles.article, articles.date, articles.id FROM articles WHERE id_categorie=$categorie ORDER BY date DESC LIMIT $start,5");
                 $res = mysqli_fetch_all($req, MYSQLI_ASSOC);
                 
                

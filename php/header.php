@@ -40,10 +40,10 @@ if($mdpconnect!=$array[0]['password']) {
             echo "<li><a href='connexion.php'>Connexion</a></li>";
             echo "<li class='menu1'><a href='#'>Catégories</a>";
             echo "<ul class='menuhide'>";
-            echo    "<li><a href='articles.php?start=0&categorie=5'>Apéritifs</a></li>";
-            echo    "<li><a href='articles.php?start=0&categorie=6'>Entrées</a></li>";
-            echo    "<li><a href='articles.php?start=0&categorie=7'>Plats</a></li>";
-            echo    "<li><a href='articles.php?start=0&categorie=8'>Desserts</a></li>";
+            echo    "<li><a href='articles.php?start=0&categorie=1'>Apéritifs</a></li>";
+            echo    "<li><a href='articles.php?start=0&categorie=2'>Entrées</a></li>";
+            echo    "<li><a href='articles.php?start=0&categorie=3'>Plats</a></li>";
+            echo    "<li><a href='articles.php?start=0&categorie=4'>Desserts</a></li>";
             echo  "</ul></li>";
         }
         ?>
@@ -55,10 +55,10 @@ if($mdpconnect!=$array[0]['password']) {
         echo "<li><a href='php/profil.php'>Mon profil</a></li>";
         echo "<li class='menu1'><a href='#'>Catégories</a>";
         echo "<ul class='menuhide'>";
-        echo    "<li><a href='articles.php?start=0&categorie=5'>Apéritifs</a></li>";
-        echo    "<li><a href='articles.php?start=0&categorie=6'>Entrées</a></li>";
-        echo    "<li><a href='articles.php?start=0&categorie=7'>Plats</a></li>";
-        echo    "<li><a href='articles.php?start=0&categorie=8'>Desserts</a></li>";
+        echo    "<li><a href='articles.php?start=0&categorie=1'>Apéritifs</a></li>";
+        echo    "<li><a href='articles.php?start=0&categorie=2'>Entrées</a></li>";
+        echo    "<li><a href='articles.php?start=0&categorie=3'>Plats</a></li>";
+        echo    "<li><a href='articles.php?start=0&categorie=4'>Desserts</a></li>";
     echo  "</ul></li>";
     echo '<form method="POST" action="">
     <input type="submit" name="deco" value="Deconnexion"/> 

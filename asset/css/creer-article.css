@@ -8,7 +8,6 @@
 }
 
 #container p {
-    font-family: 'Sacramento', cursive;
     font-weight: bold;
     font-size: 25px;
     margin-top: 60%;
@@ -29,9 +28,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 50%;
-    font-size: 20px;
-    font-family: 'Sacramento', cursive;
-}
+    font-size: 20px;}
+
 /*fin boite de gauche*/
 
 /*boite de droite*/
@@ -88,4 +86,13 @@ select:focus{
     transition: 1s;
     background-color: rgb(184, 182, 169);
 }
+
+.ErreurEnvoyer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6%;
+    font-size: 18px;
+}
 /*fin boite de droite*/
+

@@ -5,13 +5,19 @@
    //connexion à la session
     $bdd = mysqli_connect("localhost", "root", "", "blog");
     
+    //envoi la requête lorsqu'on appui sur le boutton
     if(isset($_POST['val'])){
         $actuallogin = $_SESSION['login'];
         $article = $_POST['article'];
         $actualid = $_SESSION['id'];
         $IDcategorie = $_POST['id2'];
-        $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', $actualid, '$IDcategorie', NOW())");
-        var_dump($_SESSION['login']);    
+        if(empty($article)){
+            $erreur = "Veuillez remplir les champs";
+        }
+        else{
+            $envoyer = "Article enregistré";
+        }
+        $req = mysqli_query($bdd, "INSERT INTO `articles`(article, id_utilisateur, id_categorie, date) VALUES ('$article', $actualid, '$IDcategorie', NOW())"); 
     }
 
     $req2 = mysqli_query($bdd, "SELECT * FROM `categories` ");
@@ -49,6 +55,7 @@
                         <select name="article2">
                             <option>Sélectionner une catégorie</option>
                             <?php
+                                //affiche les catégories
                                 for($i=0; isset($res[$i]); $i++){
                                     echo"<option value=".$res[$i]['nom'].">".$res[$i]['nom']."</option>";
                                 }
@@ -65,14 +72,15 @@
                         <br> </br>
                     <input class="valid" type="submit" value="Confirmer" name="val">
                 </form>
+
                 <?php
                     //message si le comentaire est envoyé
-                    if(isset($req)) { ?>
-                        <p> Article creer </p> 
-                <?php } ?>
-                <?php
-                    if(isset($_POST['val'])){
-                        echo "<p> veuillez remplir les champs</p>";
+                    if(isset($envoyer)) { 
+                        echo "<div class='ErreurEnvoyer'>$envoyer</div>";
+                    }
+                
+                    if(isset($erreur)){
+                        echo "<div class='ErreurEnvoyer'>$erreur</div>";
                     }
                 ?>
             </div>
