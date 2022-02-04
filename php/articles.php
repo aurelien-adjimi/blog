@@ -93,21 +93,33 @@
                 if(empty($res)){
                     echo "<p>Il n'y a rien pour le moment !</p>";
                 }
+
+                if(Isset($_GET['categorie'])){
+                    //affiche les articles et les dates
+                    for($i=0; isset($res[$i]); $i++){
+                        echo"<div class='titre'><a href=php/article.php?start=".$res[$i]['article'].">Nom de l'article : ".$res[$i]['article']."</a>";
+
                 //if(Isset($_GET['categorie'])){
                     //affiche les articles et les dates
                     for($i=0; isset($res[$i]); $i++){
+
+                        echo"<div class='titre'><a href=php/article.php?start=".$res[$i]['id'].">Nom de l'article : ".$res[$i]['article']."</a>";
+
+
                         echo"<div class='titre'><a href=./article.php?start=".$res[$i]['id'].">Nom de l'article : ".$res[$i]['article']."</a>";
+
                         echo"<option class='date' value=".$res[$i]['date'].">Publié le : ".$res[$i]['date']."</option>";
                         echo "<br>";
                         echo"</div>";
                     }
-                //  }
+                }
                     /*foreach($res as $key => $value){
                         echo "<hr>";
                         foreach($value as $value2){
                             echo "article: ".$value2." creer le :";
                         }
                     }*/
+                }
                 ?>
             </div>
         </div>
@@ -118,7 +130,8 @@
         /*permet d'afficher le nombre de pages*/
         for($i=1; $i<=$pages; $i++){
             echo "<a class='pagination' href='articles.php?categorie=$categorie&start=$i'> $i </a>&nbsp";
-        } ?>
+        } 
+        ?>
 
 <footer>
     <?php 

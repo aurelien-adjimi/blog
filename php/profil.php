@@ -44,7 +44,7 @@ exit;
     </header>
 <main>
    <div id="form">
-   <form action="" method="post" align="center">
+   <form action="" method="post">
    <p>Profil de <?php echo $login?></p>
          <br /><br />
       <h2>Nom d'utilisateur</h2>

@@ -3,6 +3,10 @@
 #cont {
     display: flex;
     justify-content: space-around;
+    border: 1px solid black;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
 }
 
 .art {
@@ -10,11 +14,9 @@
     justify-content: center;
     font-family: 'Sacramento', cursive;
     font-size: 30px;
-
 }
 
 .comm {
     font-family: 'Sacramento', cursive;
-    font-size: 30px;
-
+    font-size: 20px;
 }
