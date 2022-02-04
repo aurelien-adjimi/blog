@@ -1,9 +1,5 @@
 <?php
 session_start();
-<<<<<<< HEAD
-=======
-
->>>>>>> Aurélien
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 if(isset($_POST['formconnexion'])) {
    $loginconnect =$_POST['loginconnect'];
@@ -13,25 +9,14 @@ if(isset($_POST['formconnexion'])) {
    $array= mysqli_fetch_all($res, MYSQLI_ASSOC);
    var_dump($array);
 
-<<<<<<< HEAD
-   $loginconnect = ($_POST['loginconnect']);
-   $mdpconnect = ($_POST['mdpconnect']);
-   $res = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login='$loginconnect'");
-   $array= mysqli_fetch_all($res,MYSQLI_ASSOC);
-
-   foreach($array as $key =>$value)
-=======
->>>>>>> Aurélien
 
 if ($mdpconnect == $array[0]['password'] && $loginconnect == $array[0]['login']) {
       $_SESSION['login'] = $loginconnect;
-<<<<<<< HEAD
       $_SESSION['id'] = $value['id'];
       header ('Location: index.php');
-=======
       $_SESSION['droits']= $array[0]['id_droits'];
       header("location: ./profil.php");
->>>>>>> Aurélien
+      header("location: profil.php");
    }
 
    if($mdpconnect!=$array[0]['password']) {

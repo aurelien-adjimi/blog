@@ -17,20 +17,12 @@
             $categorie = $_GET['categorie']; 
             $offset = 5 * ($start - 1);
             if(!empty($_GET['categorie'])){
-<<<<<<< HEAD
-                $req = mysqli_query($bdd, "SELECT articles.article, articles.date FROM articles WHERE id_categorie=$categorie ORDER BY date DESC LIMIT $start,5");
-=======
                 $req = mysqli_query($bdd, "SELECT articles.article, articles.date, articles.id FROM articles WHERE id_categorie=$categorie ORDER BY date DESC LIMIT $start,5");
->>>>>>> Aurélien
                 $res = mysqli_fetch_all($req, MYSQLI_ASSOC);
                 
                
             }else{
-<<<<<<< HEAD
-                $req = mysqli_query($bdd, "SELECT articles.article, articles.date FROM articles ORDER BY date DESC LIMIT $start,5");
-=======
                 $req = mysqli_query($bdd, "SELECT articles.article, articles.date, articles.id FROM articles ORDER BY date DESC LIMIT $start,5");
->>>>>>> Aurélien
                 $res = mysqli_fetch_all($req, MYSQLI_ASSOC);
             }
             $countpages = mysqli_query($bdd, "SELECT count(*) FROM `articles`");
@@ -77,11 +69,7 @@
         <a href="../php/creer-article.php"><button class="boutton">Nouvel article</button></a>
     </div>   
     <form class="form" action="#" method="get">
-<<<<<<< HEAD
-                    <div class='titrecategorie'>Filtrer les catégories</div>
-=======
                     <div class='titrecategorie'><h3>Filtrer les catégories</h3></div>
->>>>>>> Aurélien
                         <select name="filtrecategorie">
                             <option></option>
                             <?php
@@ -105,32 +93,33 @@
                 if(empty($res)){
                     echo "<p>Il n'y a rien pour le moment !</p>";
                 }
-<<<<<<< HEAD
+
                 if(Isset($_GET['categorie'])){
                     //affiche les articles et les dates
                     for($i=0; isset($res[$i]); $i++){
                         echo"<div class='titre'><a href=php/article.php?start=".$res[$i]['article'].">Nom de l'article : ".$res[$i]['article']."</a>";
-=======
+
                 //if(Isset($_GET['categorie'])){
                     //affiche les articles et les dates
                     for($i=0; isset($res[$i]); $i++){
+
                         echo"<div class='titre'><a href=php/article.php?start=".$res[$i]['id'].">Nom de l'article : ".$res[$i]['article']."</a>";
->>>>>>> Aurélien
+
+
+                        echo"<div class='titre'><a href=./article.php?start=".$res[$i]['id'].">Nom de l'article : ".$res[$i]['article']."</a>";
+
                         echo"<option class='date' value=".$res[$i]['date'].">Publié le : ".$res[$i]['date']."</option>";
                         echo "<br>";
                         echo"</div>";
                     }
-<<<<<<< HEAD
                 }
-=======
-                //  }
                     /*foreach($res as $key => $value){
                         echo "<hr>";
                         foreach($value as $value2){
                             echo "article: ".$value2." creer le :";
                         }
                     }*/
->>>>>>> Aurélien
+                }
                 ?>
             </div>
         </div>
@@ -141,7 +130,8 @@
         /*permet d'afficher le nombre de pages*/
         for($i=1; $i<=$pages; $i++){
             echo "<a class='pagination' href='articles.php?categorie=$categorie&start=$i'> $i </a>&nbsp";
-        } ?>
+        } 
+        ?>
 
 <footer>
     <?php 

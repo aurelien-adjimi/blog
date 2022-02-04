@@ -9,9 +9,9 @@
 >>>>>>> Aurélien
 #container{
     display: flex;
-    margin: 40px 40px;
+    justify-content: center;
+    margin-top: 5%;
     position: relative;
-    right: -10%;
 }
 <<<<<<< HEAD
 =======

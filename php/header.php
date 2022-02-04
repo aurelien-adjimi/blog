@@ -6,7 +6,7 @@
 $bdd = mysqli_connect("localhost", "root", "", "blog");
 if(isset($_POST['deco'])) {
     session_destroy();
-    header('Location: ../php/connexion.php');
+    header('Location: connexion.php');
 }
 // Connexion //
 
@@ -22,7 +22,7 @@ if ($mdpconnect == $array[0]['password'] && $loginconnect == $array[0]['login'])
    $_SESSION['login'] = $loginconnect;
    $_SESSION['droits']= $array[0]['id_droits'];
 
-   header ('Location: ./php/profil.php');
+   header ('Location: profil.php');
 }
 
 if($mdpconnect!=$array[0]['password']) {
