@@ -52,7 +52,7 @@ if($mdpconnect!=$array[0]['password']) {
 
         if (isset($_SESSION['login'])) {
         echo "<li><a href='../index.php'>Accueil</a></li>";
-        echo "<li><a href='php/profil.php'>Mon profil</a></li>";
+        echo "<li><a href='profil.php'>Mon profil</a></li>";
         echo "<li class='menu1'><a href='#'>Catégories</a>";
         echo "<ul class='menuhide'>";
         echo    "<li><a href='articles.php?start=0&categorie=1'>Apéritifs</a></li>";
@@ -70,11 +70,11 @@ if($mdpconnect!=$array[0]['password']) {
 // Si modérateur //
 
         if($_SESSION['droits'] == 42 || $_SESSION['droits']==1337) {
-        echo "<li><a href='php/creer-article.php'>Créer article</a></li>";
+        echo "<li><a href='creer-article.php'>Créer article</a></li>";
         }
 // Si admin //
         if($_SESSION['droits'] == 1337) {
-            echo "<li><a href='php/admin.php'>Admin</a></li>";
+            echo "<li><a href='admin.php'>Admin</a></li>";
             }
         }
         ?>
