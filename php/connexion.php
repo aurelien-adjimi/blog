@@ -14,7 +14,7 @@ if(isset($_POST['formconnexion'])) {
 if ($mdpconnect == $array[0]['password'] && $loginconnect == $array[0]['login']) {
       $_SESSION['login'] = $loginconnect;
       $_SESSION['droits']= $array[0]['id_droits'];
-      header("location: ./profil.php");
+      header("location: profil.php");
    }
 
    if($mdpconnect!=$array[0]['password']) {

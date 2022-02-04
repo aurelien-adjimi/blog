@@ -96,7 +96,7 @@
                 //if(Isset($_GET['categorie'])){
                     //affiche les articles et les dates
                     for($i=0; isset($res[$i]); $i++){
-                        echo"<div class='titre'><a href=php/article.php?start=".$res[$i]['id'].">Nom de l'article : ".$res[$i]['article']."</a>";
+                        echo"<div class='titre'><a href=./article.php?start=".$res[$i]['id'].">Nom de l'article : ".$res[$i]['article']."</a>";
                         echo"<option class='date' value=".$res[$i]['date'].">Publié le : ".$res[$i]['date']."</option>";
                         echo "<br>";
                         echo"</div>";
